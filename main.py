@@ -55,28 +55,56 @@ import os
 #print(os.getcwd())
 
 # Define la ruta completa al archivo requirements.txt
-requirements_path = os.path.join(os.getcwd(), "requirements.txt")
-st.write(requirements_path)
-# Abre el archivo y lee las líneas
-try:
-    pips_modules = open(requirements_path,'r')
-    lpips_modules = pips_modules.readlines()
-except FileNotFoundError:
-    print("No se encontró el archivo requirements.txt en la ruta especificada")  
-    st.write("No se encontró el archivo requirements.txt en la ruta especificada")
-# Procesa cada línea    
-for x in lpips_modules:
-    
-    module = x.replace('\n','')
-    
-    print(f"Instalando {module}") 
-    st.write(f"Instalando {module}")        
+if 1 ==100:
+    requirements_path = os.path.join(os.getcwd(), "requirements.txt")
+    st.write(requirements_path)
+    # Abre el archivo y lee las líneas
     try:
-        subprocess.run(f"pip install {module}")
-    except Exception as e:
-        print(f"Error instalando {module}: {e}")
-        st.write(f"Error instalando {module}: {e}")
+        pips_modules = open(requirements_path,'r')
+        lpips_modules = pips_modules.readlines()
+    except FileNotFoundError:
+        print("No se encontró el archivo requirements.txt en la ruta especificada")  
+        st.write("No se encontró el archivo requirements.txt en la ruta especificada")
+    # Procesa cada línea    
+    for x in lpips_modules:
+        
+        module = x.replace('\n','')
+        
+        print(f"Instalando {module}") 
+        st.write(f"Instalando {module}")        
+        try:
+            subprocess.run(f"pip install {module}")
+        except Exception as e:
+            print(f"Error instalando {module}: {e}")
+            st.write(f"Error instalando {module}: {e}")
 
+
+    try:
+        import mysql.connector
+    except Exception as e: 
+        print('error en importaciones mysql connector',e)
+        st.write(e)
+    try:
+        import sqlalchemy
+    except Exception as e: 
+        print('error en importaciones sqlalchemy',e)
+        st.write(e)
+else: pass 
+
+with open('./requirements.txt') as f:
+  requirements = f.readlines() 
+
+print(requirements)
+
+# Itera sobre los requerimientos
+for req in requirements:
+  module = req.strip() # Quita espacios en blanco
+  
+  print(f"Instalando {module}")
+  
+  subprocess.run(["pip", "install", module])
+
+st.write("Requerimientos instalados!")
 
 try:
     import mysql.connector
@@ -88,6 +116,7 @@ try:
 except Exception as e: 
     print('error en importaciones sqlalchemy',e)
     st.write(e)
+
 
 #import streamlit-menu-option as menu_option
 
