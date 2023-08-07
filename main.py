@@ -101,9 +101,13 @@ requirements_list=[
 import subprocess
 for x in requirements_list:
     st.write(f"pip install {x}")
-    subprocess.run(["pip", "install", f"{x}"])
+    try:
+        subprocess.run(["pip", "install", f"{x}"])
+        st.write("Requerimiento instalado!")
 
-st.write("Requerimientos instalados!")
+    except Exception as e: 
+        st.write('Por alguna razon no se ejecuto',e)
+
 
 try:
     import mysql.connector
