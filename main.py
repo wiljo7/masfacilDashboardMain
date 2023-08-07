@@ -49,9 +49,14 @@ else:
 
 try:
     import mysql.connector
-    import sqlalchemy as db
 except Exception as e: 
-    print(e)
+    print('error en importaciones mysql connector',e)
+    st.write(e)
+try:
+    import sqlalchemy
+except Exception as e: 
+    print('error en importaciones sqlalchemy',e)
+    st.write(e)
 
 #import streamlit-menu-option as menu_option
 
