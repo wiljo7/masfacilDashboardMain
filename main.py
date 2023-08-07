@@ -55,7 +55,7 @@ import os
 #print(os.getcwd())
 
 # Define la ruta completa al archivo requirements.txt
-if 1 ==1:
+if 1 ==11111:
     requirements_path = "masfacildashboardmain/requirements.txt"#.path.join(os.getcwd(), "requirements.txt")
     st.write(requirements_path)
     # Abre el archivo y lee las líneas
@@ -91,18 +91,15 @@ if 1 ==1:
         st.write(e)
 else: pass 
 
-with open('./requirements.txt') as f:
-  requirements = f.readlines() 
-
-print(requirements)
-
-# Itera sobre los requerimientos
-for req in requirements:
-  module = req.strip() # Quita espacios en blanco
+requirements_list=[
+    'mysql-connector-python==8.1.0',
+    'SQLAlchemy==2.0.19',
+    'streamlit-option-menu==0.3.6'
+]
   
-  print(f"Instalando {module}")
-  
-  subprocess.run(["pip", "install", module])
+for x in requirements_list:
+    st.write(f"pip install {x}")
+    subprocess.run(f"pip install {x}")
 
 st.write("Requerimientos instalados!")
 
