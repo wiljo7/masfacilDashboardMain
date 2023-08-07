@@ -35,22 +35,32 @@ database = info_dict['database']
 user = info_dict['user']
 password = info_dict['password']
 
-if 1==1:
+pips_modules=open('requirements.txt','r')
+lpips_modules=pips_modules.readlines()
+for x in lpips_modules:
     import subprocess
-
-    # Instalar paquetes desde requirements.txt
+    module_=x.replace('\n','')
+    st.write(f"pip install {module_}")
     try:
-        print(['pip', 'install', '-r', 'requirements.txt'])
-        subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
+        subprocess.run(f"pip install {module_}")
     except Exception as e: 
-        st.write('No se pudo instalar requeriments',e)
+        st.write('sudprocess error',e)
+# if 1==1:
+    
 
-        try:
-            subprocess.run('pip install -r requirements.txt')
-        except Exception as e:
-            st.write('Aqui tampoco se pudo instalar los requirements')
-else:
-    pass 
+#     # Instalar paquetes desde requirements.txt
+#     try:
+#         print(['pip', 'install', '-r', 'requirements.txt'])
+#         subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
+#     except Exception as e: 
+#         st.write('No se pudo instalar requeriments',e)
+
+#         try:
+#             subprocess.run('pip install -r requirements.txt')
+#         except Exception as e:
+#             st.write('Aqui tampoco se pudo instalar los requirements')
+# else:
+#     pass 
 
 try:
     import mysql.connector
