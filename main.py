@@ -56,7 +56,7 @@ import os
 
 # Define la ruta completa al archivo requirements.txt
 if 1 ==100:
-    requirements_path = os.path.join(os.getcwd(), "requirements.txt")
+    requirements_path = "masfacildashboardmainos/requirements.txt"#.path.join(os.getcwd(), "requirements.txt")
     st.write(requirements_path)
     # Abre el archivo y lee las líneas
     try:
