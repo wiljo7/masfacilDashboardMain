@@ -96,7 +96,9 @@ requirements_list=[
     'SQLAlchemy==2.0.19',
     'streamlit-option-menu==0.3.6'
 ]
+
   
+import subprocess
 for x in requirements_list:
     st.write(f"pip install {x}")
     subprocess.run(f"pip install {x}")
