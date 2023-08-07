@@ -35,6 +35,7 @@ database = info_dict['database']
 user = info_dict['user']
 password = info_dict['password']
 
+if 1 == 100:
 pips_modules=open('requirements.txt','r')
 lpips_modules=pips_modules.readlines()
 for x in lpips_modules:
@@ -45,22 +46,38 @@ for x in lpips_modules:
         subprocess.run(f"pip install {module_}")
     except Exception as e: 
         st.write('sudprocess error',e)
-# if 1==1:
+else:
+    pass 
+
+import os
+
+# Imprime el directorio actual 
+#print(os.getcwd())
+
+# Define la ruta completa al archivo requirements.txt
+requirements_path = os.path.join(os.getcwd(), "requirements.txt")
+
+# Abre el archivo y lee las líneas
+try:
+  pips_modules = open(requirements_path,'r')
+  lpips_modules = pips_modules.readlines()
+except FileNotFoundError:
+  print("No se encontró el archivo requirements.txt en la ruta especificada")  
+else:
+
+  # Procesa cada línea    
+  for x in lpips_modules:
+      
+    module = x.replace('\n','')
     
+    print(f"Instalando {module}") 
+    
+    try:
+      subprocess.run(f"pip install {module}")
+    except Exception as e:
+        print(f"Error instalando {module}: {e}")
 
-#     # Instalar paquetes desde requirements.txt
-#     try:
-#         print(['pip', 'install', '-r', 'requirements.txt'])
-#         subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
-#     except Exception as e: 
-#         st.write('No se pudo instalar requeriments',e)
 
-#         try:
-#             subprocess.run('pip install -r requirements.txt')
-#         except Exception as e:
-#             st.write('Aqui tampoco se pudo instalar los requirements')
-# else:
-#     pass 
 
 try:
     import mysql.connector
