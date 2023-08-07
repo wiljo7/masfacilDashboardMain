@@ -1,6 +1,6 @@
 import streamlit as st 
 import pandas 
-import mysql.connector 
+#import mysql.connector 
 
 
 
