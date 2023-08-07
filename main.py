@@ -59,21 +59,21 @@ requirements_path = os.path.join(os.getcwd(), "requirements.txt")
 
 # Abre el archivo y lee las líneas
 try:
-  pips_modules = open(requirements_path,'r')
-  lpips_modules = pips_modules.readlines()
+    pips_modules = open(requirements_path,'r')
+    lpips_modules = pips_modules.readlines()
 except FileNotFoundError:
-  print("No se encontró el archivo requirements.txt en la ruta especificada")  
+    print("No se encontró el archivo requirements.txt en la ruta especificada")  
 else:
 
   # Procesa cada línea    
-  for x in lpips_modules:
+    for x in lpips_modules:
       
     module = x.replace('\n','')
     
     print(f"Instalando {module}") 
     
     try:
-      subprocess.run(f"pip install {module}")
+        subprocess.run(f"pip install {module}")
     except Exception as e:
         print(f"Error instalando {module}: {e}")
 
