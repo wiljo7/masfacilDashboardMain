@@ -36,16 +36,16 @@ user = info_dict['user']
 password = info_dict['password']
 
 if 1 == 100:
-pips_modules=open('requirements.txt','r')
-lpips_modules=pips_modules.readlines()
-for x in lpips_modules:
-    import subprocess
-    module_=x.replace('\n','')
-    st.write(f"pip install {module_}")
-    try:
-        subprocess.run(f"pip install {module_}")
-    except Exception as e: 
-        st.write('sudprocess error',e)
+    pips_modules=open('requirements.txt','r')
+    lpips_modules=pips_modules.readlines()
+    for x in lpips_modules:
+        import subprocess
+        module_=x.replace('\n','')
+        st.write(f"pip install {module_}")
+        try:
+            subprocess.run(f"pip install {module_}")
+        except Exception as e: 
+            st.write('sudprocess error',e)
 else:
     pass 
 
