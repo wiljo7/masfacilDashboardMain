@@ -68,14 +68,14 @@ else:
   # Procesa cada línea    
     for x in lpips_modules:
       
-    module = x.replace('\n','')
-    
-    print(f"Instalando {module}") 
-    
-    try:
-        subprocess.run(f"pip install {module}")
-    except Exception as e:
-        print(f"Error instalando {module}: {e}")
+        module = x.replace('\n','')
+        
+        print(f"Instalando {module}") 
+        
+        try:
+            subprocess.run(f"pip install {module}")
+        except Exception as e:
+            print(f"Error instalando {module}: {e}")
 
 
 
