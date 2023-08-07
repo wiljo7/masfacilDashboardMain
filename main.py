@@ -43,7 +43,12 @@ if 1==1:
         print(['pip', 'install', '-r', 'requirements.txt'])
         subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
     except Exception as e: 
-        print('instalando requeriments',e)
+        st.write('No se pudo instalar requeriments',e)
+
+        try:
+            subprocess.run('pip install -r requirements.txt')
+        except Exception as e:
+            st.write('Aqui tampoco se pudo instalar los requirements')
 else:
     pass 
 
