@@ -20,7 +20,7 @@ for x in lc:
 bussines_name=info_dict['store_name']
 
 try:
-    st.set_option('browser.gatherUsageStats', False)
+    st.set_option('browser.gatherUsageStats', asdsFalse)
 except Exception as e: 
     print(e)
 
@@ -97,11 +97,11 @@ requirements_list=[
     'streamlit-option-menu==0.3.6'
 ]
 
-  
+
 import subprocess
 for x in requirements_list:
     st.write(f"pip install {x}")
-    subprocess.run(f"pip install {x}")
+    subprocess.run(["pip", "install", f"{x}"])
 
 st.write("Requerimientos instalados!")
 
