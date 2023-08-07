@@ -71,12 +71,12 @@ else:
         module = x.replace('\n','')
         
         print(f"Instalando {module}") 
-        
+        st.write(f"Instalando {module}")        
         try:
             subprocess.run(f"pip install {module}")
         except Exception as e:
             print(f"Error instalando {module}: {e}")
-
+            st.write(f"Error instalando {module}: {e}")
 
 
 try:
